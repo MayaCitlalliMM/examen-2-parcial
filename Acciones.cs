@@ -13,87 +13,84 @@ namespace examen_2_parcial
             public List<Videojuego> listavideojuegos = new List<Videojuego>();
             Videojuego a = new Videojuego();
 
-            public void AgregarAuto()
+            public void AgregarVideojuego()
             {
-                Console.WriteLine("Mar: ");
+                Console.WriteLine("Juego: ");
                 a.Juego = Console.ReadLine();
-                Console.WriteLine("Modelo: ");
+                Console.WriteLine("Consola: ");
                 a.Consola = Console.ReadLine();
-                Console.WriteLine("Anio: ");
+                Console.WriteLine("Año: ");
                 a.Anio = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Numero de puertas: ");
-                a.NoPuertas = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("color: ");
-                a.Color = Console.ReadLine();
+                Console.WriteLine("Genero: ");
+                a.Genero = Console.ReadLine();
+                Console.WriteLine("Creador: ");
+                a.Creador = Console.ReadLine();
 
 
 
                 listavideojuegos.Add(new Videojuego(a.Juego, a.Consola, a.Anio, a.Genero, a.Creador));
             }
-            public void MostrarAutos()
+            public void MostrarVideojuego()
             {
-                foreach (var e in listaautomoviles)
+                foreach (var e in listavideojuegos)
                 {
-                    Console.WriteLine($"La marca  es: {e.Marca} ");
-                    Console.WriteLine($"La modelo  es: {e.Modelo} ");
+                    Console.WriteLine($"El videojuego es: {e.Juego} ");
+                    Console.WriteLine($"Consola  es: {e.Consola} ");
                     Console.WriteLine($"El anio  es: {e.Anio} ");
-                    Console.WriteLine($"La Numero de puertas es: {e.NoPuertas} ");
-                    Console.WriteLine($"La color  es: {e.Color} ");
+                    Console.WriteLine($"El genero es: {e.Genero} ");
+                    Console.WriteLine($"El creador  es: {e.Creador} ");
 
                 }
             }
-            public int ContarAutomoviles()
+            public int ContarVideojuego()
             {
-                return listaautomoviles.Count;
+                return listavideojuegos.Count;
             }
-            public void EliminarAutomovil(string nombremarca)
+            public void EliminarVideojuego(string nombrejuego)
             {
-                var automovil = listaautomoviles.Find(y => y.Marca == nombremarca);
-                if (automovil != null)
-                    listaautomoviles.Remove(automovil);
+                var video = listavideojuegos.Find(y => y.Juego == nombrejuego);
+                if (video != null)
+                   listavideojuegos.Remove(video);
                 else
-                    Console.WriteLine("no se encontro tu automovil.");
+                    Console.WriteLine("no se encontro tu Videojuego.");
             }
-            public void ActualizarDatosAutomovil()
+            public void ActualizarVideojuego()
             {
-                // Pedir la marca actual (la que se quiere cambiar)
-                Console.Write("Introduce la marca actual del automóvil que deseas actualizar: ");
+                
+                Console.Write("Introduce el videojuego actual del que deseas actualizar: ");
                 string marcaAntigua = Console.ReadLine();
 
-                // Buscar el automóvil con la marca antigua
-                var automovil = listaautomoviles.Find(y => y.Marca == marcaAntigua);
+                var video = listavideojuegos.Find(y => y.Juego == marcaAntigua);
 
-                // Si se encuentra el automóvil, solicitar los nuevos datos
-                if (automovil != null)
+            
+                if (video != null)
                 {
-                    // Solicitar nuevos datos para actualizar
-                    Console.Write("Introduce la nueva marca del automóvil: ");
-                    string nuevaMarca = Console.ReadLine();
+                    Console.Write("Introduce la nuevo Videojuego: ");
+                    string nuevoJuego = Console.ReadLine();
 
-                    Console.Write("Introduce el nuevo modelo del automóvil: ");
-                    string nuevoModelo = Console.ReadLine();
+                    Console.Write("Introduce el nueva consola: ");
+                    string nuevaConsola = Console.ReadLine();
 
-                    Console.Write("Introduce el nuevo año del automóvil: ");
+                    Console.Write("Introduce el nuevo año del videojuego: ");
                     int nuevoAño = Convert.ToInt32(Console.ReadLine());
 
-                    Console.Write("Introduce el nuevo número de puertas: ");
-                    int nuevoNumeroPuertas = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Introduce el nuevo genero: ");
+                     string nuevoGenero = Console.ReadLine();
 
-                    Console.Write("Introduce el nuevo color del automóvil: ");
-                    string nuevoColor = Console.ReadLine();
-                    // nuevo
-                    // Actualizar los datos del automóvil
-                    automovil.Marca = nuevaMarca;
-                    automovil.Modelo = nuevoModelo;
-                    automovil.Anio = nuevoAño;
-                    automovil.NoPuertas = nuevoNumeroPuertas;
-                    automovil.Color = nuevoColor;
+                    Console.Write("Introduce el nuevo Creador: ");
+                    string nuevoCreador = Console.ReadLine();
+                   
+                    video.Juego = nuevoJuego;
+                    video.Consola = nuevaConsola;
+                    video.Anio = nuevoAño;
+                    video.Genero = nuevoGenero;
+                    video.Creador = nuevoCreador;
 
-                    Console.WriteLine("Los datos del automóvil han sido actualizados correctamente.");
+                    Console.WriteLine("Los datos del Videojuego han sido actualizados correctamente.");
                 }
                 else
                 {
-                    Console.WriteLine("No se encontró un automóvil con esa marca.");
+                    Console.WriteLine("No se encontró el videojuego con esa juego.");
                 }
             }
         
